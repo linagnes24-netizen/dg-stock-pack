@@ -1,0 +1,27 @@
+name: 每日更新收盤價資料包
+
+on:
+  schedule:
+    - cron: '20 22 * * *'   # 台北時間 06:20
+    - cron: '50 0 * * *'    # 台北時間 08:50（第一次失敗時補跑）
+  workflow_dispatch:         # 可在 Actions 頁面手動按「Run workflow」
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 抓取收盤價並產生資料包
+        run: node update-pack.mjs
+      - name: 有變化才提交
+        run: |
+          git config user.name "dg-pack-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json
+          git diff --cached --quiet || (git commit -m "收盤價資料包 $(TZ=Asia/Taipei date +%F)" && git push)
