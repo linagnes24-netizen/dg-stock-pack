@@ -2,8 +2,10 @@ name: 每日更新收盤價資料包
 
 on:
   schedule:
-    - cron: '20 22 * * *'   # 台北時間 06:20
-    - cron: '50 0 * * *'    # 台北時間 08:50（第一次失敗時補跑）
+    - cron: '7 22 * * *'    # 台北時間 06:07
+    - cron: '37 23 * * *'   # 台北時間 07:37（補跑）
+    - cron: '17 1 * * *'    # 台北時間 09:17（補跑）
+    - cron: '47 3 * * *'    # 台北時間 11:47（補跑）
   workflow_dispatch:         # 可在 Actions 頁面手動按「Run workflow」
 
 permissions:
