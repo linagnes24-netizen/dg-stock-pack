@@ -310,6 +310,13 @@ body.need-rotate #rotateHint{display:flex}
  body.playing .pad button[data-hold=ArrowLeft]{grid-column:1}
  body.playing .pad button[data-hold=ArrowRight]{grid-column:3}
 }
+.pad{display:none!important}
+#rotateHint small{display:block;margin-top:8px;color:#bfe3c8}
+body.playing{overscroll-behavior:none}
+@media (orientation:landscape) and (max-height:500px){
+ body.playing .game-panel{grid-template-columns:minmax(0,1fr)}
+ body.playing .hud,body.playing .segbar,body.playing .arena,body.playing .event-feed{grid-column:1}
+}
 @media(prefers-reduced-motion:reduce){.hero-mascot,.ticker-track,.eyebrow i,.live-dot,.pix-star,.guess-hero img{animation:none}}
 </style></head>
 <body>
@@ -347,7 +354,7 @@ body.need-rotate #rotateHint{display:flex}
 <section class="steps"><div class="px"><span>01</span><p>百大企業，像素登場<small>節奏越來越快，最後 10 秒尾盤衝刺</small></p></div><div class="px"><span>02</span><p>30 種事件＋2 種道具<small>顏色和股價、事件效果無關</small></p></div><div class="px"><span>03</span><p>先猜金額，再看答案<small>神秘模式考驗你的市場直覺</small></p></div></section>
 <p id="dataStatus" class="data-status" role="status">正在載入官方行情資料包…</p></main>
 <footer class="page-footer"><span>小 DG 遊戲所 ／ 讓金融，多一點好玩。</span><span>遊戲分數為虛擬價值，無實際股票交易。</span></footer>
-<dialog id="modal"><div class="modal-top"><h2 id="modalTitle"></h2><button id="closeModal" aria-label="關閉視窗">×</button></div><div id="modalBody"></div></dialog><div id="toast" role="status" hidden></div><div id="rotateHint" role="dialog" aria-label="請轉為橫向"><div><div class="phone"></div><b>請將手機轉為橫向</b><p>橫向畫面更寬，接股更順手！</p><button class="btn ghost" id="portraitOk">直式也要玩</button></div></div>
+<dialog id="modal"><div class="modal-top"><h2 id="modalTitle"></h2><button id="closeModal" aria-label="關閉視窗">×</button></div><div id="modalBody"></div></dialog><div id="toast" role="status" hidden></div><div id="rotateHint" role="dialog" aria-label="請轉為橫向"><div><div class="phone"></div><b>請將手機轉為橫向</b><p>轉成橫向後遊戲才會開始<br><small>轉不過來？請先關閉手機的「螢幕旋轉鎖定」</small></p><button class="btn ghost" id="rotateBack">返回首頁</button></div></div>
 <script type="module">
 /* ===== 每日資料包網址：貼上 GitHub 上 data/latest.json 的 raw 網址；留空則只用內建資料 ===== */
 const PACK_URL='https://raw.githubusercontent.com/linagnes24-netizen/dg-stock-pack/main/data/latest.json';
@@ -504,7 +511,7 @@ async function start(){
   for(const n of ['3','2','1']){$('countdown').textContent=n;$('countdown').classList.remove('pop');void $('countdown').offsetWidth;$('countdown').classList.add('pop');sfx('tick');await new Promise(r=>setTimeout(r,650));}
   if(document.hidden){document.body.classList.remove('playing');phase='idle';$('welcome').hidden=false;$('player').hidden=true;$('countdown').hidden=true;$('refreshButton').disabled=false;updateBest();return}
   $('countdown').textContent='GO!';sfx('go');setTimeout(()=>$('countdown').hidden=true,380);
-  $('gameHint').hidden=false;started=performance.now();last=started;nextSpawn=started+200;nextEvent=started+1300;nextPower=started+7000+Math.random()*3000;phase='playing';syncRotate();
+  $('gameHint').querySelector('span').textContent=isPhone()?'按住畫面左右拖曳小 DG！':'← → 移動小 DG，接住股票！';$('gameHint').hidden=false;started=performance.now();last=started;nextSpawn=started+200;nextEvent=started+1300;nextPower=started+7000+Math.random()*3000;phase='playing';syncRotate();
 }
 function textUnits(s){return [...s].reduce((n,c)=>n+(c.charCodeAt(0)>255?2:1),0);}
 function spawn(kind){
@@ -556,7 +563,7 @@ function tick(now){
   const dt=Math.min((now-last)/1000,.06);last=now;
   const L=keys.has('ArrowLeft')||keys.has('a')||keys.has('A'),R=keys.has('ArrowRight')||keys.has('d')||keys.has('D');
   if(L&&!R)targetX=px-650*dt;if(R&&!L)targetX=px+650*dt;
-  targetX=clamp(targetX,0,width-PW);px=clamp(px+clamp(targetX-px,-750*dt,750*dt),0,width-PW);
+  targetX=clamp(targetX,0,width-PW);const cap=drag?1800:750;px=clamp(px+clamp(targetX-px,-cap*dt,cap*dt),0,width-PW);
   const moved=px-prevPx,walking=Math.abs(moved)>.4;$('player').classList.toggle('walk',walking);prevPx=px;
   if(now>=poseUntil)showSprite(walking?(moved<0?'walkL':'walkR'):now<magnetUntil?'magnet':(Math.floor(now/450)%2?'idleB':'idleA'));
   $('player').classList.toggle('shielded',shield);$('player').classList.toggle('magnet',now<magnetUntil);drawPlayer();
@@ -582,11 +589,11 @@ function setPaused(v){if(v===paused)return;paused=v;const now=performance.now();
 const portraitMQ=matchMedia('(orientation:portrait) and (hover:none) and (pointer:coarse)');
 const isPhone=()=>(navigator.maxTouchPoints>0||matchMedia('(pointer:coarse)').matches)&&Math.min(screen.width,screen.height)<600;
 const needRotate=()=>isPhone()&&innerHeight>innerWidth&&!document.body.classList.contains('portrait-ok');
-function syncRotate(){const show=needRotate()&&['countdown','playing','rotate'].includes(phase);document.body.classList.toggle('need-rotate',show);if(phase==='playing')setPaused(show);if(!show&&rotateWaiter){const r=rotateWaiter;rotateWaiter=null;r();}}
+function syncRotate(){const show=needRotate()&&['countdown','playing','rotate'].includes(phase);$('rotateBack').hidden=phase!=='rotate';document.body.classList.toggle('need-rotate',show);if(phase==='playing')setPaused(show);if(!show&&rotateWaiter){const r=rotateWaiter;rotateWaiter=null;r();}}
 let rotateWaiter=null;
 portraitMQ.addEventListener?.('change',()=>setTimeout(()=>{measure();syncRotate();},250));
 window.addEventListener('resize',()=>setTimeout(syncRotate,250));
-$('portraitOk').onclick=()=>{document.body.classList.add('portrait-ok');syncRotate();};
+$('rotateBack').onclick=()=>{if(phase!=='rotate')return;rotateWaiter=null;phase='idle';document.body.classList.remove('playing','need-rotate');leaveFullscreen();updateBest();};
 async function goLandscape(){try{if(matchMedia('(hover:none) and (pointer:coarse)').matches&&document.documentElement.requestFullscreen&&!document.fullscreenElement){await document.documentElement.requestFullscreen({navigationUI:'hide'});await screen.orientation?.lock?.('landscape');}}catch{}}
 function leaveFullscreen(){try{if(document.fullscreenElement)document.exitFullscreen();screen.orientation?.unlock?.();}catch{}}
 function loop(now){if(phase==='playing'&&!paused)tick(now);requestAnimationFrame(loop);}
@@ -626,9 +633,12 @@ function pool(){
 }
 $('startButton').onclick=start;$('refreshButton').onclick=()=>refresh(true);$('poolButton').onclick=pool;
 $('historyButton').onclick=()=>{if(!showModal('我的挑戰紀錄',`<p>保留本瀏覽器最近 50 局。每局保存模式、行情日期、股票明細與總價值。</p>${records.length?records.map((r,i)=>`<div class="history-entry"><div><strong>NT$ ${cash(r.scoreCents)}</strong><small>${esc(MODE_LABEL[r.mode]??'挑戰')} · ${esc(new Date(r.endedAt).toLocaleString('zh-TW'))} · ${r.caught} 張 · 行情 ${esc(r.tradeDate)}</small></div><button class="btn ghost" data-record="${i}">明細</button></div>`).join(''):'<div class="empty-pocket"><h3>尚未建立戰績</h3><p>完成第一局，開始你的接股旅程。</p></div>'}`))return;document.querySelectorAll('[data-record]').forEach(b=>b.onclick=()=>showResult(records[Number(b.dataset.record)]))};
-$('helpButton').onclick=()=>showModal('遊戲說明',`<p>股票越落越密，速度逐漸提升。接股票、躲事件、搶道具，60 秒後看看你的口袋值多少！</p><ol><li>使用鍵盤 ← → / A D、滑鼠或觸控拖曳移動小 DG；手機可用下方的方向鍵。</li><li><b>神秘模式</b>：金額與事件效果全程保密，結束後先猜總價值再揭曉。<b>明牌模式</b>：價值與事件效果即時顯示，適合新手練習。</li><li>60 秒分為暖身、加速、衝刺，最後 10 秒進入「尾盤衝刺」，股票掉落更密集，天色也會從白天變成夜晚。</li><li>股票從百大名單等機率抽出，每張代表 1,000 股。卡片顏色隨機，與股價、事件效果完全無關。</li><li>30 種市場事件中，負向效果較常出現，部分事件可能讓價值歸零。事件立即影響當下持股，後續新接股票按原收盤價加入。</li><li><b>停損單</b>：擋下「下一則」接到的事件；若是利空就無效化，若是利多照常生效。<b>定期定額</b>：3 秒內自動把附近股票吸到小 DG 上方。</li><li><b>連擊加碼</b>：連續接住 10 張股票不漏接，同一檔再加碼 1 張。漏接股票會中斷連擊，但不扣分。</li><li>切換分頁仍會計時，並清除掉落卡片。每局開始鎖定資料包。</li></ol><p>所有事件皆為遊戲情境，名稱不代表真實市場影響。紀錄存在目前瀏覽器，可於揭曉後匯出 CSV。</p>`);
+$('helpButton').onclick=()=>showModal('遊戲說明',`<p>股票越落越密，速度逐漸提升。接股票、躲事件、搶道具，60 秒後看看你的口袋值多少！</p><ol><li>電腦：用鍵盤 ← → / A D 或滑鼠移動小 DG。手機：轉成橫向後，按住畫面左右拖曳。</li><li><b>神秘模式</b>：金額與事件效果全程保密，結束後先猜總價值再揭曉。<b>明牌模式</b>：價值與事件效果即時顯示，適合新手練習。</li><li>60 秒分為暖身、加速、衝刺，最後 10 秒進入「尾盤衝刺」，股票掉落更密集，天色也會從白天變成夜晚。</li><li>股票從百大名單等機率抽出，每張代表 1,000 股。卡片顏色隨機，與股價、事件效果完全無關。</li><li>30 種市場事件中，負向效果較常出現，部分事件可能讓價值歸零。事件立即影響當下持股，後續新接股票按原收盤價加入。</li><li><b>停損單</b>：擋下「下一則」接到的事件；若是利空就無效化，若是利多照常生效。<b>定期定額</b>：3 秒內自動把附近股票吸到小 DG 上方。</li><li><b>連擊加碼</b>：連續接住 10 張股票不漏接，同一檔再加碼 1 張。漏接股票會中斷連擊，但不扣分。</li><li>切換分頁仍會計時，並清除掉落卡片。每局開始鎖定資料包。</li></ol><p>所有事件皆為遊戲情境，名稱不代表真實市場影響。紀錄存在目前瀏覽器，可於揭曉後匯出 CSV。</p>`);
 function pointer(e){if(phase!=='playing')return;const r=$('arena').getBoundingClientRect();targetX=clamp(e.clientX-r.left-PW/2,0,width-PW)}
-$('arena').addEventListener('pointerdown',e=>{pointer(e);if(phase==='playing')$('arena').setPointerCapture(e.pointerId)});$('arena').addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.buttons)pointer(e)});
+let drag=null;
+$('arena').addEventListener('pointerdown',e=>{if(phase!=='playing')return;if(e.pointerType==='mouse')pointer(e);else{e.preventDefault();drag={id:e.pointerId,x:e.clientX,px};targetX=px;}try{$('arena').setPointerCapture(e.pointerId)}catch{}});
+$('arena').addEventListener('pointermove',e=>{if(phase!=='playing')return;if(e.pointerType==='mouse'){pointer(e);return}if(drag&&e.pointerId===drag.id){e.preventDefault();targetX=clamp(drag.px+(e.clientX-drag.x)*1.3,0,width-PW);}});
+for(const ev of ['pointerup','pointercancel'])$('arena').addEventListener(ev,e=>{if(drag&&e.pointerId===drag.id){drag=null;targetX=px;}});
 document.querySelectorAll('[data-hold]').forEach(b=>{const k=b.dataset.hold;b.addEventListener('pointerdown',e=>{e.preventDefault();keys.add(k);b.classList.add('on');try{b.setPointerCapture(e.pointerId)}catch{}});for(const t of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(t,()=>{keys.delete(k);b.classList.remove('on')});b.addEventListener('contextmenu',e=>e.preventDefault());});
 document.addEventListener('keydown',e=>{if(phase==='playing'&&['ArrowLeft','ArrowRight','a','d','A','D'].includes(e.key)){e.preventDefault();keys.add(e.key)}else if(e.key==='Enter'&&phase!=='playing'&&!$('modal').open&&!$('startButton').disabled&&!busy()&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='INPUT'){e.preventDefault();start();}});
 document.addEventListener('keyup',e=>keys.delete(e.key));window.addEventListener('blur',()=>keys.clear());
