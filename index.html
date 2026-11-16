@@ -268,6 +268,48 @@ body.playing .pad{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
 body.playing .pad button{height:64px}
 }
 @media(max-width:420px){.brand>span:last-child{display:none}nav{gap:10px}}
+
+/* ===== phone: trim page, rotate prompt, landscape console layout ===== */
+#player.mini{width:70px;height:80px}
+#player.mini .sprite{left:-21px;width:112px!important;height:108px!important}
+#player.mini .tray{left:6px;right:6px;top:-12px}
+#player.mini .aura{left:-12px;right:-12px;top:-18px}
+#rotateHint{display:none;position:fixed;inset:0;z-index:300;background:#10261ff2;color:var(--paper);align-items:center;justify-content:center;text-align:center;padding:24px}
+body.need-rotate #rotateHint{display:flex}
+#rotateHint .phone{width:56px;height:96px;margin:0 auto 28px;border:6px solid var(--gold);background:#1d4b3d;box-shadow:0 0 0 4px var(--ink);animation:tilt 1.6s steps(4) infinite}
+#rotateHint b{display:block;font-size:24px;font-weight:400;margin-bottom:10px}
+#rotateHint p{margin:0 0 24px;color:var(--mint)}
+@keyframes tilt{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
+@media (max-width:600px),(orientation:landscape) and (max-height:500px){
+ .portfolio,.steps,.data-status,.eyebrow{display:none}
+ body:not(.playing) .event-feed,body:not(.playing) .pad,body:not(.playing) .game-footer{display:none}
+ .page-footer{font-size:12px}
+}
+@media (orientation:landscape) and (max-height:500px){
+ .hud,.segbar{display:none}
+ .topbar{height:60px}.heading{margin-bottom:16px}.heading p{display:none}h1{font-size:36px;margin:0}
+ .layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+ .heading{display:none}main{padding-top:0}
+ .arena{height:calc(100svh - 84px);min-height:260px}
+ .welcome{padding:8px 28px;align-items:center}.welcome .tag-line,.welcome p,.start-caption{display:none}.welcome h2{font-size:36px;margin:0 0 14px}.welcome h2 br{display:none}
+ .modes{width:420px;margin:4px 4px 18px}.mode{padding:6px 10px 8px}.mode b{font-size:12px}.welcome .btn{font-size:12px;padding:10px 16px 14px}
+ .mascot-scene{transform:scale(.7);transform-origin:bottom right}
+ body.playing{overflow:hidden}
+ body.playing .topbar,body.playing .heading,body.playing aside,body.playing .page-footer,body.playing .game-footer,body.playing .ticker,body.playing .pad .pad-mid{display:none}
+ body.playing .game-panel{position:fixed;inset:0;margin:0;z-index:50;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:auto auto minmax(0,1fr) auto;box-shadow:none;background:var(--deep);padding:0 env(safe-area-inset-right) 0 env(safe-area-inset-left)}
+ body.playing .hud{grid-column:2;grid-row:1;display:grid;grid-template-columns:auto auto auto minmax(0,1fr)}
+ body.playing .hud>div{padding:4px 12px;flex-direction:row;align-items:center;gap:8px;border-bottom:0;border-right:4px solid var(--ink)}
+ body.playing .hud .value-stat{order:9;grid-column:auto;border-right:0;justify-content:flex-start;min-width:0}
+ body.playing .hud small{white-space:nowrap;overflow:hidden}
+ body.playing .segbar{grid-column:2;grid-row:2;display:grid;padding:3px 6px}
+ body.playing .segbar i{height:4px}
+ body.playing .arena{grid-column:2;grid-row:3;height:auto;min-height:0}
+ body.playing .event-feed{grid-column:2;grid-row:4;min-height:26px;padding:2px 12px;white-space:nowrap;overflow:hidden}
+ body.playing .pad{display:contents}
+ body.playing .pad button{grid-row:1/-1;width:84px;height:auto;margin:14px 10px;font-size:36px}
+ body.playing .pad button[data-hold=ArrowLeft]{grid-column:1}
+ body.playing .pad button[data-hold=ArrowRight]{grid-column:3}
+}
 @media(prefers-reduced-motion:reduce){.hero-mascot,.ticker-track,.eyebrow i,.live-dot,.pix-star,.guess-hero img{animation:none}}
 </style></head>
 <body>
@@ -305,7 +347,7 @@ body.playing .pad button{height:64px}
 <section class="steps"><div class="px"><span>01</span><p>百大企業，像素登場<small>節奏越來越快，最後 10 秒尾盤衝刺</small></p></div><div class="px"><span>02</span><p>30 種事件＋2 種道具<small>顏色和股價、事件效果無關</small></p></div><div class="px"><span>03</span><p>先猜金額，再看答案<small>神秘模式考驗你的市場直覺</small></p></div></section>
 <p id="dataStatus" class="data-status" role="status">正在載入官方行情資料包…</p></main>
 <footer class="page-footer"><span>小 DG 遊戲所 ／ 讓金融，多一點好玩。</span><span>遊戲分數為虛擬價值，無實際股票交易。</span></footer>
-<dialog id="modal"><div class="modal-top"><h2 id="modalTitle"></h2><button id="closeModal" aria-label="關閉視窗">×</button></div><div id="modalBody"></div></dialog><div id="toast" role="status" hidden></div>
+<dialog id="modal"><div class="modal-top"><h2 id="modalTitle"></h2><button id="closeModal" aria-label="關閉視窗">×</button></div><div id="modalBody"></div></dialog><div id="toast" role="status" hidden></div><div id="rotateHint" role="dialog" aria-label="請轉為橫向"><div><div class="phone"></div><b>請將手機轉為橫向</b><p>橫向畫面更寬，接股更順手！</p><button class="btn ghost" id="portraitOk">直式也要玩</button></div></div>
 <script type="module">
 /* ===== 每日資料包網址：貼上 GitHub 上 data/latest.json 的 raw 網址；留空則只用內建資料 ===== */
 const PACK_URL='https://raw.githubusercontent.com/linagnes24-netizen/dg-stock-pack/main/data/latest.json';
@@ -329,7 +371,7 @@ function validatePack(p){
 
 /* ---------- game rules ---------- */
 const DURATION=60000,UNIT=1000,FEVER_MS=10000,MAGNET_MS=3000,COMBO_STEP=10;
-const PW=104,PH=120,GROUND=40;
+let PW=104,PH=120;const GROUND=40;
 const clamp=(n,a,b)=>Math.min(b,Math.max(a,n));
 function selectStock(list,random=Math.random){return list[Math.min(list.length-1,Math.floor(random()*list.length))];}
 function collision(item,oldY,newY,line,playerX,playerWidth){return oldY+item.height<=line&&newY+item.height>=line&&item.x+item.width>playerX&&item.x<playerX+playerWidth;}
@@ -397,7 +439,7 @@ records=records.filter(r=>r&&Number.isSafeInteger(r.scoreCents)&&r.scoreCents>=0
 function read(k,f){try{return JSON.parse(localStorage.getItem(k))??f}catch{return f}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch{toast('瀏覽器儲存空間不可用，請匯出紀錄留存。');return false}}
 function toast(m){$('toast').textContent=m;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4500)}
-const busy=()=>['playing','countdown','guessing'].includes(phase);
+const busy=()=>['playing','countdown','guessing','rotate'].includes(phase);
 $('segbar').innerHTML='<i class="on"></i>'.repeat(20);
 function setSeg(left){const n=Math.ceil(left/DURATION*20);[...$('segbar').children].forEach((el,i)=>el.classList.toggle('on',i<n));$('segbar').classList.toggle('low',left<=20000&&left>FEVER_MS);$('segbar').classList.toggle('fever',left<=FEVER_MS&&left>0);}
 
@@ -445,32 +487,34 @@ function fx(name,big=false){const e=document.createElement('div');e.className='f
 function badge(name,big=false){const e=document.createElement('img');e.className='badge pix'+(big?' big':'');e.src=A['badge_'+name];e.alt='';const w=A.$size['badge_'+name][0]*(big?3:2);e.style.width=w+'px';if(big){e.style.left='50%';e.style.top='42%';}else{e.style.left=Math.round(clamp(px+PW/2-w/2,4,width-w-4))+'px';e.style.top=Math.round(height-GROUND-PH-130)+'px';}$('effects').append(e);setTimeout(()=>e.remove(),big?1600:1100);}
 function statue(bull){const e=document.createElement('img');e.className='statue pix '+(bull?'bull':'bear');e.src=A[bull?'stat_bull':'stat_bear'];e.alt='';$('effects').append(e);setTimeout(()=>e.remove(),1400);}
 /* ---------- arena ---------- */
-function measure(){const r=$('arena').getBoundingClientRect();width=r.width;height=r.height;px=clamp(px,0,width-PW);targetX=clamp(targetX,0,width-PW);}
+function measure(){const r=$('arena').getBoundingClientRect();width=r.width;height=r.height;const mini=height>0&&height<420;PW=mini?70:104;PH=mini?80:120;$('player').classList.toggle('mini',mini);px=clamp(px,0,width-PW);targetX=clamp(targetX,0,width-PW);}
 new ResizeObserver(measure).observe($('arena'));
 function drawPlayer(){$('player').style.transform=`translateX(${Math.round(px)}px)`;}
 function reset(){items=[];holdings.clear();eventLog=[];powerLog=[];caught=0;missed=0;score=0;combo=0;maxCombo=0;bonus=0;shield=false;magnetUntil=0;bgP=0;setStage(0);pose='';poseUntil=0;showSprite('idleA');
   $('eventFeed').className='event-feed';$('eventFeed').textContent=mode==='open'?'明牌模式：事件效果會即時顯示。':'市場消息接連登場，效果等你猜完再揭曉。';$('eventCount').textContent='0';$('paceLabel').textContent='暖身階段';$('paceLabel').className='pill';$('padPace').textContent='按住左右移動';$('drops').replaceChildren();$('effects').replaceChildren();$('buffs').replaceChildren();$('arena').classList.remove('fever');
-  $('timer').textContent='60';setSeg(DURATION);$('score').textContent=mode==='open'?'0':'？？？';$('count').textContent='0';$('combo').textContent='0';$('comboStat').classList.remove('hot');$('player').className='';renderPocket();measure();px=(width-PW)/2;targetX=px;prevPx=px;face=1;drawPlayer();keys.clear();}
+  $('timer').textContent='60';setSeg(DURATION);$('score').textContent=mode==='open'?'0':'？？？';$('count').textContent='0';$('combo').textContent='0';$('comboStat').classList.remove('hot');$('player').className=height>0&&height<420?'mini':'';renderPocket();measure();px=(width-PW)/2;targetX=px;prevPx=px;face=1;drawPlayer();keys.clear();}
 async function start(){
   if(!pack||busy())return;
   if($('modal').open)$('modal').close();
   document.body.classList.add('playing');window.scrollTo(0,0);
+  goLandscape();
+  if(needRotate()){phase='rotate';syncRotate();await new Promise(r=>rotateWaiter=r);await new Promise(r=>setTimeout(r,300));}
   reset();roundPack=structuredClone(pack);phase='countdown';$('bestScore').textContent=mode==='open'?'挑戰中…':'本局保密中';$('bestCaption').textContent=mode==='open'?'加油，衝高紀錄！':'先猜金額，結束後揭曉';$('refreshButton').disabled=true;$('welcome').hidden=true;$('player').hidden=false;$('countdown').hidden=false;
   $('arena').focus({preventScroll:true});
   for(const n of ['3','2','1']){$('countdown').textContent=n;$('countdown').classList.remove('pop');void $('countdown').offsetWidth;$('countdown').classList.add('pop');sfx('tick');await new Promise(r=>setTimeout(r,650));}
   if(document.hidden){document.body.classList.remove('playing');phase='idle';$('welcome').hidden=false;$('player').hidden=true;$('countdown').hidden=true;$('refreshButton').disabled=false;updateBest();return}
   $('countdown').textContent='GO!';sfx('go');setTimeout(()=>$('countdown').hidden=true,380);
-  $('gameHint').hidden=false;started=performance.now();last=started;nextSpawn=started+200;nextEvent=started+1300;nextPower=started+7000+Math.random()*3000;phase='playing';
+  $('gameHint').hidden=false;started=performance.now();last=started;nextSpawn=started+200;nextEvent=started+1300;nextPower=started+7000+Math.random()*3000;phase='playing';syncRotate();
 }
 function textUnits(s){return [...s].reduce((n,c)=>n+(c.charCodeAt(0)>255?2:1),0);}
 function spawn(kind){
-  const el=document.createElement('div'),item={kind,el,y:0,fallScale:.9+Math.random()*.2},sm=width<600;let w,h;
-  if(kind==='event'){const ev=selectEvent();item.event=ev;el.className='drop event-drop';el.innerHTML=`<b>${esc(ev.name)}</b><em>市場事件 · 效果待揭曉</em>`;w=sm?Math.max(150,textUnits(ev.name)*12+46):Math.max(184,textUnits(ev.name)*12+64);h=sm?60:66;}
+  const el=document.createElement('div'),item={kind,el,y:0,fallScale:.9+Math.random()*.2},sm=width<600||height<420;let w,h;
+  if(kind==='event'){const ev=selectEvent();item.event=ev;el.className='drop event-drop';el.innerHTML=`<b>${esc(ev.name)}</b><em>市場事件 · 效果待揭曉</em>`;w=sm?Math.max(150,textUnits(ev.name)*12+60):Math.max(184,textUnits(ev.name)*12+64);h=sm?60:66;}
   else if(kind==='power'){const p=selectStock(POWERUPS);item.power=p;el.className='drop power-drop';el.innerHTML=`<img class="pix" src="${A[p.icon]}" alt=""><span><b>${p.name}</b><em>${p.desc}</em></span>`;w=textUnits(p.desc)*12+(sm?66:86);h=sm?68:76;item.fallScale=.85;}
-  else{const s=selectStock(roundPack.stocks);item.stock=s;el.className='drop';el.innerHTML=`<small>${esc(s.code)} · 1 張</small><b>${esc(s.name)}</b>`;w=sm?Math.max(124,textUnits(s.name)*12+22):150;h=sm?76:86;}
+  else{const s=selectStock(roundPack.stocks);item.stock=s;el.className='drop';el.innerHTML=`<small>${esc(s.code)} · 1 張</small><b>${esc(s.name)}</b>`;w=sm?Math.max(124,textUnits(s.name)*12+34):Math.max(150,textUnits(s.name)*12+40);h=sm?76:86;}
   if(kind!=='power'){const tone=selectStock(CARD_TONES);el.style.setProperty('--card-bg',tone.bg);el.style.setProperty('--card-border',tone.border);el.style.setProperty('--card-ink',tone.ink);}
   if(sm)el.classList.add('sm');el.style.width=w+'px';el.style.height=h+'px';
-  const top=36,cands=Array.from({length:8},()=>8+Math.random()*Math.max(0,width-w-16));
+  const top=document.querySelector('.ticker').offsetHeight?36:0,cands=Array.from({length:8},()=>8+Math.random()*Math.max(0,width-w-16));
   const crowd=x=>items.filter(i=>i.y<top+70&&i.x<x+w+8&&i.x+i.width>x-8).length;
   item.x=cands.sort((a,b)=>crowd(a)-crowd(b))[0];item.y=top-h;item.width=w;item.height=h;
   el.style.transform=`translate(${Math.round(item.x)}px,${Math.round(item.y)}px)`;
@@ -525,7 +569,7 @@ function tick(now){
   if($('paceLabel').textContent!==label){$('paceLabel').textContent=label;$('padPace').textContent=label;$('paceLabel').className='pill'+(rhythm.fever?' hot':'');$('arena').classList.toggle('fever',rhythm.fever);if(rhythm.fever){badge('fever',true);sfx('combo');}}
   const line=height-GROUND-PH+12,magnet=now<magnetUntil,center=px+PW/2;
   items=items.filter(item=>{
-    const old=item.y;item.y+=rhythm.fallSpeed*item.fallScale*dt;
+    const old=item.y;item.y+=rhythm.fallSpeed*item.fallScale*dt*clamp(height/480,.65,1);
     if(magnet&&item.stock&&item.y>height*.18){item.x+=clamp(center-(item.x+item.width/2),-320*dt,320*dt);}
     item.x=clamp(item.x,0,width-item.width);
     if(collision(item,old,item.y,line,px+6,PW-12)){catchItem(item,now);item.el.remove();return false}
@@ -533,11 +577,23 @@ function tick(now){
     item.el.style.transform=`translate(${Math.round(item.x)}px,${Math.round(item.y)}px)`;return true});
   $('timer').textContent=Math.ceil(left/1000);setSeg(left);renderBuffs(now);if(now-started>4000)$('gameHint').hidden=true;
 }
-function loop(now){if(phase==='playing')tick(now);requestAnimationFrame(loop);}
+let paused=false,pauseAt=0;
+function setPaused(v){if(v===paused)return;paused=v;const now=performance.now();if(v){pauseAt=now;keys.clear();}else{const d=now-pauseAt;started+=d;nextSpawn+=d;nextEvent+=d;nextPower+=d;if(magnetUntil)magnetUntil+=d;poseUntil+=d;last=now;}}
+const portraitMQ=matchMedia('(orientation:portrait) and (hover:none) and (pointer:coarse)');
+const isPhone=()=>(navigator.maxTouchPoints>0||matchMedia('(pointer:coarse)').matches)&&Math.min(screen.width,screen.height)<600;
+const needRotate=()=>isPhone()&&innerHeight>innerWidth&&!document.body.classList.contains('portrait-ok');
+function syncRotate(){const show=needRotate()&&['countdown','playing','rotate'].includes(phase);document.body.classList.toggle('need-rotate',show);if(phase==='playing')setPaused(show);if(!show&&rotateWaiter){const r=rotateWaiter;rotateWaiter=null;r();}}
+let rotateWaiter=null;
+portraitMQ.addEventListener?.('change',()=>setTimeout(()=>{measure();syncRotate();},250));
+window.addEventListener('resize',()=>setTimeout(syncRotate,250));
+$('portraitOk').onclick=()=>{document.body.classList.add('portrait-ok');syncRotate();};
+async function goLandscape(){try{if(matchMedia('(hover:none) and (pointer:coarse)').matches&&document.documentElement.requestFullscreen&&!document.fullscreenElement){await document.documentElement.requestFullscreen({navigationUI:'hide'});await screen.orientation?.lock?.('landscape');}}catch{}}
+function leaveFullscreen(){try{if(document.fullscreenElement)document.exitFullscreen();screen.orientation?.unlock?.();}catch{}}
+function loop(now){if(phase==='playing'&&!paused)tick(now);requestAnimationFrame(loop);}
 requestAnimationFrame(loop);
 function finish(){
   if(phase!=='playing')return;
-  phase='result';document.body.classList.remove('playing');keys.clear();$('timer').textContent='0';setSeg(0);$('gameHint').hidden=true;$('refreshButton').disabled=false;$('arena').classList.remove('fever');$('buffs').replaceChildren();sfx('end');
+  phase='result';paused=false;document.body.classList.remove('playing','need-rotate');leaveFullscreen();keys.clear();$('timer').textContent='0';setSeg(0);$('gameHint').hidden=true;$('refreshButton').disabled=false;$('arena').classList.remove('fever');$('buffs').replaceChildren();sfx('end');
   const list=[...holdings.values()].sort((a,b)=>holdingValue(b)-holdingValue(a));
   latestRound={id:crypto.randomUUID(),mode:MODES[mode].key,endedAt:new Date().toISOString(),durationSeconds:60,tradeDate:roundPack.tradeDate,packId:roundPack.id,unitShares:UNIT,scoreCents:totalCents(list),baseCents:list.reduce((v,s)=>v+s.closeCents*UNIT*s.count,0),caught,missed,maxCombo,bonus,powerups:powerLog,holdings:list,events:eventLog,guessCents:null};
   records.unshift(latestRound);records=records.slice(0,50);save('dg.records.v1',records);
