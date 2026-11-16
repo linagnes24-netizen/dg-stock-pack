@@ -1,6 +1,6 @@
 # dg-stock-pack
 
-遊戲網址：https://linagnes24-netizen.github.io/dg-stock-pack/
+遊戲網址：https://game.capital-eserve.com/
 
 - `index.html`：股力全開遊戲本體（GitHub Pages 發布）
 - `og.png`：分享到 LINE／FB 時的預覽圖
