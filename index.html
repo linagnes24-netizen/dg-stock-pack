@@ -13,7 +13,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,#arena:focus-visible{ou
 img.pix,canvas,.pix{image-rendering:pixelated;image-rendering:crisp-edges}
 /* guard against host-site CSS (e.g. img{max-width:100%;height:auto}) squashing sprites */
 img.pix,.badge,.statue{max-width:none!important;max-height:none!important;min-width:0!important;min-height:0!important;padding:0!important;border:0!important;margin:0;box-sizing:content-box!important;object-fit:contain;flex:none}
-#player .sprite{width:168px!important;height:162px!important}
+#player .sprite{width:140px!important;height:135px!important}
 .hero-mascot{width:224px!important;height:216px!important}
 svg.ico{display:inline-block;vertical-align:middle;flex:none}
 /* pixel frame: notched outline + bottom drop */
@@ -87,9 +87,9 @@ h1 span{font-size:24px;color:var(--mint);margin-left:8px;text-shadow:2px 2px 0 v
 .power-drop img{width:28px;height:28px;object-fit:contain}
 .power-drop em{opacity:1}
 /* player */
-#player{position:absolute;left:0;bottom:40px;width:104px;height:120px;z-index:5;pointer-events:none;will-change:transform}
+#player{position:absolute;left:0;bottom:40px;width:87px;height:100px;z-index:5;pointer-events:none;will-change:transform}
 #player .body{position:absolute;inset:0}
-#player .sprite{position:absolute;left:-32px;bottom:0;width:168px;height:162px}
+#player .sprite{position:absolute;left:-27px;bottom:0;width:140px;height:135px}
 #player.walk .body{animation:walk .22s steps(2) infinite}
 #player.caught .body{transform:translateY(4px)}
 #player .tray{position:absolute;left:12px;right:12px;top:-10px;height:8px;background:var(--gold);box-shadow:0 -4px 0 var(--ink),0 4px 0 var(--ink),-4px 0 0 var(--ink),4px 0 0 var(--ink),inset 0 -3px 0 var(--gold-d),0 0 0 12px #ffe39a33;z-index:2}
@@ -378,7 +378,7 @@ function validatePack(p){
 
 /* ---------- game rules ---------- */
 const DURATION=60000,UNIT=1000,FEVER_MS=10000,MAGNET_MS=3000,COMBO_STEP=10;
-let PW=104,PH=120;const GROUND=40;
+let PW=87,PH=100;const GROUND=40;
 const clamp=(n,a,b)=>Math.min(b,Math.max(a,n));
 function selectStock(list,random=Math.random){return list[Math.min(list.length-1,Math.floor(random()*list.length))];}
 function collision(item,oldY,newY,line,playerX,playerWidth){return oldY+item.height<=line&&newY+item.height>=line&&item.x+item.width>playerX&&item.x<playerX+playerWidth;}
@@ -528,7 +528,7 @@ function fx(name,big=false){const e=document.createElement('div');e.className='f
 function badge(name,big=false){const e=document.createElement('img');e.className='badge pix'+(big?' big':'');e.src=A['badge_'+name];e.alt='';const w=A.$size['badge_'+name][0]*(big?3:2);e.style.width=w+'px';if(big){e.style.left='50%';e.style.top='42%';}else{e.style.left=Math.round(clamp(px+PW/2-w/2,4,width-w-4))+'px';e.style.top=Math.round(height-GROUND-PH-130)+'px';}$('effects').append(e);setTimeout(()=>e.remove(),big?1600:1100);}
 function statue(bull){const e=document.createElement('img');e.className='statue pix '+(bull?'bull':'bear');e.src=A[bull?'stat_bull':'stat_bear'];e.alt='';$('effects').append(e);setTimeout(()=>e.remove(),1400);}
 /* ---------- arena ---------- */
-function measure(){const r=$('arena').getBoundingClientRect();width=r.width;height=r.height;const mini=height>0&&height<420;PW=mini?70:104;PH=mini?80:120;$('player').classList.toggle('mini',mini);px=clamp(px,0,width-PW);targetX=clamp(targetX,0,width-PW);}
+function measure(){const r=$('arena').getBoundingClientRect();width=r.width;height=r.height;const mini=height>0&&height<420;PW=mini?70:87;PH=mini?80:100;$('player').classList.toggle('mini',mini);px=clamp(px,0,width-PW);targetX=clamp(targetX,0,width-PW);}
 new ResizeObserver(measure).observe($('arena'));
 function drawPlayer(){$('player').style.transform=`translateX(${Math.round(px)}px)`;}
 function reset(){items=[];holdings.clear();eventLog=[];powerLog=[];caught=0;missed=0;score=0;combo=0;maxCombo=0;bonus=0;shield=false;magnetUntil=0;bgP=0;setStage(0);pose='';poseUntil=0;showSprite('idleA');
