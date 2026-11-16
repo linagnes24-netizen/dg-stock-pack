@@ -456,7 +456,7 @@ const BGM=(()=>{
     if(k===0||k===8||(fever&&k===10))hit('kick',t);
     if(k===4||k===12)hit('snare',t);
     if(fever||k%2===0)hit('hat',t);}
-  const spd=()=>60/(fever?168:144)/4;
+  const spd=()=>60/(fever?196:144)/4;
   function pump(){while(next<ctx.currentTime+.15){schedStep(step,next,spd());next+=spd();step=(step+1)%128;}}
   return{setup,schedStep,spd,
     start(c,dest){if(!c)return;if(ctx!==c)setup(c,dest);fever=false;step=0;next=c.currentTime+.08;on=true;clearInterval(timer);timer=setInterval(pump,25);},
