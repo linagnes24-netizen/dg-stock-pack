@@ -331,6 +331,17 @@ body{padding-top:env(safe-area-inset-top)}
 #iosTip p{margin:0 0 18px;color:var(--mint);line-height:1.9}
 #iosTip p b.hl{display:inline;font-size:12px;color:var(--gold)}
 #iosTip small{display:block;margin-top:14px;color:#9ec2ab}
+/* phones in landscape: slim one-line score bar so the play area gets more room */
+@media (orientation:landscape) and (max-height:500px){
+ body.playing .hud>div{padding:2px 10px;gap:6px}
+ body.playing .hud strong{font-size:12px;line-height:20px}
+ body.playing .hud em{margin-left:2px}
+ body.playing .hud small{font-size:12px;line-height:20px}
+ body.playing .hud small svg{width:12px;height:12px}
+ body.playing #valueLabel{display:none}
+ body.playing .segbar{padding:2px 6px;gap:3px}
+ body.playing .segbar i{height:3px}
+}
 @media(prefers-reduced-motion:reduce){.hero-mascot,.ticker-track,.eyebrow i,.live-dot,.pix-star,.guess-hero img{animation:none}}
 </style></head>
 <body>
