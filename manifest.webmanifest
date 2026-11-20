@@ -1,0 +1,14 @@
+{
+  "name": "小 DG 股力全開",
+  "short_name": "股力全開",
+  "description": "和像素小 DG 一起挑戰 60 秒接股票！",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "background_color": "#1d4b3d",
+  "theme_color": "#1d4b3d",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
