@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "2026-11-19-ea66e64e5c5c",
-  "tradeDate": "2026-11-19",
-  "generatedAt": "2026-11-20T03:03:51.253Z",
-  "requestedBefore": "2026-11-20",
+  "id": "2026-11-20-e47f890caad6",
+  "tradeDate": "2026-11-20",
+  "generatedAt": "2026-11-21T03:09:14.872Z",
+  "requestedBefore": "2026-11-21",
   "unitShares": 1000,
   "universe": "上市＋上櫃普通股；收盤價 × 當日發行股數；排除 ETF、權證、特別股、TDR；限具有效收盤價標的",
   "rankingMethod": "close-times-issued-shares",
   "sources": [
-    "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261119&type=ALLBUT0999&response=json",
-    "https://www.twse.com.tw/rwd/zh/fund/MI_QFIIS?date=20261119&selectType=ALLBUT0999&response=json",
-    "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026/11/19&response=json",
+    "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261120&type=ALLBUT0999&response=json",
+    "https://www.twse.com.tw/rwd/zh/fund/MI_QFIIS?date=20261120&selectType=ALLBUT0999&response=json",
+    "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026/11/20&response=json",
     "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
     "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"
   ],
@@ -19,900 +19,900 @@
       "code": "2330",
       "name": "台積電",
       "market": "TWSE",
-      "closeCents": 210000,
+      "closeCents": 200000,
       "issuedShares": 25932370067,
-      "marketCap": 54457977140700,
+      "marketCap": 51864740134000,
       "rank": 1
     },
     {
       "code": "2454",
       "name": "聯發科",
       "market": "TWSE",
-      "closeCents": 372000,
+      "closeCents": 335000,
       "issuedShares": 1604923907,
-      "marketCap": 5970316934040,
+      "marketCap": 5376495088450,
       "rank": 2
     },
     {
       "code": "2317",
       "name": "鴻海",
       "market": "TWSE",
-      "closeCents": 22050,
+      "closeCents": 21000,
       "issuedShares": 14028648626,
-      "marketCap": 3093317022033,
+      "marketCap": 2946016211460,
       "rank": 3
     },
     {
       "code": "2308",
       "name": "台達電",
       "market": "TWSE",
-      "closeCents": 100000,
+      "closeCents": 90000,
       "issuedShares": 2597543329,
-      "marketCap": 2597543329000,
+      "marketCap": 2337788996100,
       "rank": 4
     },
     {
       "code": "3711",
       "name": "日月光投控",
       "market": "TWSE",
-      "closeCents": 50400,
+      "closeCents": 45700,
       "issuedShares": 4488089243,
-      "marketCap": 2261996978472,
+      "marketCap": 2051056784051,
       "rank": 5
     },
     {
       "code": "2881",
       "name": "富邦金",
       "market": "TWSE",
-      "closeCents": 14800,
+      "closeCents": 13650,
       "issuedShares": 14007364952,
-      "marketCap": 2073090012896,
+      "marketCap": 1912005315948,
       "rank": 6
     },
     {
       "code": "1303",
       "name": "南亞",
       "market": "TWSE",
-      "closeCents": 22850,
+      "closeCents": 20600,
       "issuedShares": 7930821589,
-      "marketCap": 1812192733087,
+      "marketCap": 1633749247334,
       "rank": 7
     },
     {
       "code": "2882",
       "name": "國泰金",
       "market": "TWSE",
-      "closeCents": 10350,
+      "closeCents": 9690,
       "issuedShares": 14669210128,
-      "marketCap": 1518263248248,
+      "marketCap": 1421446461403,
       "rank": 8
     },
     {
       "code": "2891",
       "name": "中信金",
       "market": "TWSE",
-      "closeCents": 7310,
+      "closeCents": 6800,
       "issuedShares": 19675932806,
-      "marketCap": 1438310688119,
+      "marketCap": 1337963430808,
       "rank": 9
     },
     {
       "code": "2412",
       "name": "中華電",
       "market": "TWSE",
-      "closeCents": 16600,
+      "closeCents": 16250,
       "issuedShares": 7757446545,
-      "marketCap": 1287736126470,
+      "marketCap": 1260585063563,
       "rank": 10
     },
     {
-      "code": "2383",
-      "name": "台光電",
+      "code": "2382",
+      "name": "廣達",
       "market": "TWSE",
-      "closeCents": 312000,
-      "issuedShares": 358321114,
-      "marketCap": 1117961875680,
+      "closeCents": 25200,
+      "issuedShares": 4107627432,
+      "marketCap": 1035122112864,
       "rank": 11
     },
     {
       "code": "2303",
       "name": "聯電",
       "market": "TWSE",
-      "closeCents": 8820,
+      "closeCents": 8030,
       "issuedShares": 12569520480,
-      "marketCap": 1108631706336,
+      "marketCap": 1009332494544,
       "rank": 12
     },
     {
-      "code": "2382",
-      "name": "廣達",
+      "code": "2383",
+      "name": "台光電",
       "market": "TWSE",
-      "closeCents": 26250,
-      "issuedShares": 4107627432,
-      "marketCap": 1078252200900,
+      "closeCents": 281000,
+      "issuedShares": 358321114,
+      "marketCap": 1006882330340,
       "rank": 13
     },
     {
       "code": "3037",
       "name": "欣興",
       "market": "TWSE",
-      "closeCents": 59600,
+      "closeCents": 53700,
       "issuedShares": 1641291596,
-      "marketCap": 978209791216,
+      "marketCap": 881373587052,
       "rank": 14
     },
     {
       "code": "3017",
       "name": "奇鋐",
       "market": "TWSE",
-      "closeCents": 244500,
+      "closeCents": 220500,
       "issuedShares": 392543007,
-      "marketCap": 959767652115,
+      "marketCap": 865557330435,
       "rank": 15
-    },
-    {
-      "code": "2408",
-      "name": "南亞科",
-      "market": "TWSE",
-      "closeCents": 29350,
-      "issuedShares": 3098627894,
-      "marketCap": 909447286889,
-      "rank": 16
     },
     {
       "code": "2887",
       "name": "台新新光金",
       "market": "TWSE",
-      "closeCents": 3570,
+      "closeCents": 3395,
       "issuedShares": 25115061997,
-      "marketCap": 896607713293,
-      "rank": 17
+      "marketCap": 852656354798,
+      "rank": 16
     },
     {
       "code": "2885",
       "name": "元大金",
       "market": "TWSE",
-      "closeCents": 6320,
+      "closeCents": 5930,
       "issuedShares": 13864395944,
-      "marketCap": 876229823661,
+      "marketCap": 822158679479,
+      "rank": 17
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
+      "market": "TWSE",
+      "closeCents": 26450,
+      "issuedShares": 3098627894,
+      "marketCap": 819587077963,
       "rank": 18
     },
     {
-      "code": "3443",
-      "name": "創意",
+      "code": "2886",
+      "name": "兆豐金",
       "market": "TWSE",
-      "closeCents": 600000,
-      "issuedShares": 134011911,
-      "marketCap": 804071466000,
+      "closeCents": 5180,
+      "issuedShares": 14833378282,
+      "marketCap": 768368995008,
       "rank": 19
     },
     {
       "code": "6505",
       "name": "台塑化",
       "market": "TWSE",
-      "closeCents": 8430,
+      "closeCents": 8060,
       "issuedShares": 9525959652,
-      "marketCap": 803038398664,
+      "marketCap": 767792347951,
       "rank": 20
-    },
-    {
-      "code": "2886",
-      "name": "兆豐金",
-      "market": "TWSE",
-      "closeCents": 5340,
-      "issuedShares": 14833378282,
-      "marketCap": 792102400259,
-      "rank": 21
     },
     {
       "code": "6669",
       "name": "緯穎",
       "market": "TWSE",
-      "closeCents": 141000,
+      "closeCents": 132500,
       "issuedShares": 560199772,
-      "marketCap": 789881678520,
-      "rank": 22
+      "marketCap": 742264697900,
+      "rank": 21
     },
     {
-      "code": "2345",
-      "name": "智邦",
+      "code": "3443",
+      "name": "創意",
       "market": "TWSE",
-      "closeCents": 135000,
-      "issuedShares": 561117897,
-      "marketCap": 757509160950,
-      "rank": 23
+      "closeCents": 540000,
+      "issuedShares": 134011911,
+      "marketCap": 723664319400,
+      "rank": 22
     },
     {
       "code": "2884",
       "name": "玉山金",
       "market": "TWSE",
-      "closeCents": 4035,
+      "closeCents": 3960,
       "issuedShares": 17723510471,
-      "marketCap": 715143647505,
+      "marketCap": 701851014652,
+      "rank": 23
+    },
+    {
+      "code": "2345",
+      "name": "智邦",
+      "market": "TWSE",
+      "closeCents": 123000,
+      "issuedShares": 561117897,
+      "marketCap": 690175013310,
       "rank": 24
     },
     {
       "code": "2880",
       "name": "華南金",
       "market": "TWSE",
-      "closeCents": 4885,
+      "closeCents": 4700,
       "issuedShares": 14056134739,
-      "marketCap": 686642182000,
+      "marketCap": 660638332733,
       "rank": 25
     },
     {
       "code": "2327",
       "name": "國巨*",
       "market": "TWSE",
-      "closeCents": 32250,
+      "closeCents": 29600,
       "issuedShares": 2063128462,
-      "marketCap": 665358928995,
+      "marketCap": 610686024752,
       "rank": 26
     },
     {
-      "code": "3653",
-      "name": "健策",
+      "code": "2357",
+      "name": "華碩",
       "market": "TWSE",
-      "closeCents": 411500,
-      "issuedShares": 147203878,
-      "marketCap": 605743957970,
+      "closeCents": 75600,
+      "issuedShares": 742760280,
+      "marketCap": 561526771680,
       "rank": 27
     },
     {
       "code": "2890",
       "name": "永豐金",
       "market": "TWSE",
-      "closeCents": 3910,
+      "closeCents": 3600,
       "issuedShares": 15432168721,
-      "marketCap": 603397796991,
+      "marketCap": 555558073956,
       "rank": 28
     },
     {
-      "code": "2357",
-      "name": "華碩",
+      "code": "3653",
+      "name": "健策",
       "market": "TWSE",
-      "closeCents": 80000,
-      "issuedShares": 742760280,
-      "marketCap": 594208224000,
+      "closeCents": 370500,
+      "issuedShares": 147203878,
+      "marketCap": 545390367990,
       "rank": 29
-    },
-    {
-      "code": "7769",
-      "name": "鴻勁",
-      "market": "TWSE",
-      "closeCents": 321000,
-      "issuedShares": 179930000,
-      "marketCap": 577575300000,
-      "rank": 30
     },
     {
       "code": "2892",
       "name": "第一金",
       "market": "TWSE",
-      "closeCents": 4015,
+      "closeCents": 3760,
       "issuedShares": 14379468650,
-      "marketCap": 577335666298,
+      "marketCap": 540668021240,
+      "rank": 30
+    },
+    {
+      "code": "7769",
+      "name": "鴻勁",
+      "market": "TWSE",
+      "closeCents": 289000,
+      "issuedShares": 179930000,
+      "marketCap": 519997700000,
       "rank": 31
     },
     {
       "code": "2059",
       "name": "川湖",
       "market": "TWSE",
-      "closeCents": 594000,
+      "closeCents": 535000,
       "issuedShares": 95297072,
-      "marketCap": 566064607680,
+      "marketCap": 509839335200,
       "rank": 32
     },
     {
       "code": "2883",
       "name": "凱基金",
       "market": "TWSE",
-      "closeCents": 3185,
+      "closeCents": 2990,
       "issuedShares": 16974612475,
-      "marketCap": 540641407329,
+      "marketCap": 507540913003,
       "rank": 33
-    },
-    {
-      "code": "3231",
-      "name": "緯創",
-      "market": "TWSE",
-      "closeCents": 15600,
-      "issuedShares": 3429842250,
-      "marketCap": 535055391000,
-      "rank": 34
     },
     {
       "code": "2603",
       "name": "長榮",
       "market": "TWSE",
-      "closeCents": 24700,
+      "closeCents": 23300,
       "issuedShares": 2165042996,
-      "marketCap": 534765620012,
+      "marketCap": 504455018068,
+      "rank": 34
+    },
+    {
+      "code": "3231",
+      "name": "緯創",
+      "market": "TWSE",
+      "closeCents": 14700,
+      "issuedShares": 3429842250,
+      "marketCap": 504186810750,
       "rank": 35
     },
     {
       "code": "3008",
       "name": "大立光",
       "market": "TWSE",
-      "closeCents": 398000,
+      "closeCents": 367000,
       "issuedShares": 130798197,
-      "marketCap": 520576824060,
+      "marketCap": 480029382990,
       "rank": 36
     },
     {
       "code": "6446",
       "name": "藥華藥",
       "market": "TWSE",
-      "closeCents": 120500,
+      "closeCents": 110000,
       "issuedShares": 422434636,
-      "marketCap": 509033736380,
+      "marketCap": 464678099600,
       "rank": 37
-    },
-    {
-      "code": "2395",
-      "name": "研華",
-      "market": "TWSE",
-      "closeCents": 55400,
-      "issuedShares": 868254487,
-      "marketCap": 481012985798,
-      "rank": 38
     },
     {
       "code": "3045",
       "name": "台灣大",
       "market": "TWSE",
-      "closeCents": 12750,
+      "closeCents": 12300,
       "issuedShares": 3723261811,
-      "marketCap": 474715880903,
-      "rank": 39
+      "marketCap": 457961202753,
+      "rank": 38
     },
     {
-      "code": "8046",
-      "name": "南電",
+      "code": "2395",
+      "name": "研華",
       "market": "TWSE",
-      "closeCents": 69800,
-      "issuedShares": 646165487,
-      "marketCap": 451023509926,
-      "rank": 40
+      "closeCents": 52000,
+      "issuedShares": 868254487,
+      "marketCap": 451492333240,
+      "rank": 39
     },
     {
       "code": "1216",
       "name": "統一",
       "market": "TWSE",
-      "closeCents": 7870,
+      "closeCents": 7500,
       "issuedShares": 5682015421,
-      "marketCap": 447174613633,
+      "marketCap": 426151156575,
+      "rank": 40
+    },
+    {
+      "code": "5880",
+      "name": "合庫金",
+      "market": "TWSE",
+      "closeCents": 2640,
+      "issuedShares": 16072960337,
+      "marketCap": 424326152897,
       "rank": 41
     },
     {
       "code": "2344",
       "name": "華邦電",
       "market": "TWSE",
-      "closeCents": 9800,
-      "issuedShares": 4500000193,
-      "marketCap": 441000018914,
+      "closeCents": 8920,
+      "issuedShares": 4720490802,
+      "marketCap": 421067779538,
       "rank": 42
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "market": "TWSE",
+      "closeCents": 62900,
+      "issuedShares": 646165487,
+      "marketCap": 406438091323,
+      "rank": 43
     },
     {
       "code": "2301",
       "name": "光寶科",
       "market": "TWSE",
-      "closeCents": 19350,
+      "closeCents": 17550,
       "issuedShares": 2276107763,
-      "marketCap": 440426852141,
-      "rank": 43
-    },
-    {
-      "code": "5880",
-      "name": "合庫金",
-      "market": "TWSE",
-      "closeCents": 2740,
-      "issuedShares": 16072960337,
-      "marketCap": 440399113234,
+      "marketCap": 399456912407,
       "rank": 44
     },
     {
       "code": "2360",
       "name": "致茂",
       "market": "TWSE",
-      "closeCents": 103000,
+      "closeCents": 92700,
       "issuedShares": 425245742,
-      "marketCap": 438003114260,
+      "marketCap": 394202802834,
       "rank": 45
     },
     {
       "code": "2368",
       "name": "金像電",
       "market": "TWSE",
-      "closeCents": 79000,
+      "closeCents": 71100,
       "issuedShares": 532451280,
-      "marketCap": 420636511200,
+      "marketCap": 378572860080,
       "rank": 46
     },
     {
       "code": "4904",
       "name": "遠傳",
       "market": "TWSE",
-      "closeCents": 10800,
+      "closeCents": 10300,
       "issuedShares": 3607705357,
-      "marketCap": 389632178556,
+      "marketCap": 371593651771,
       "rank": 47
-    },
-    {
-      "code": "6223",
-      "name": "旺矽",
-      "market": "TPEx",
-      "closeCents": 395500,
-      "issuedShares": 97981309,
-      "marketCap": 387516077095,
-      "rank": 48
     },
     {
       "code": "1301",
       "name": "台塑",
       "market": "TWSE",
-      "closeCents": 6040,
+      "closeCents": 5610,
       "issuedShares": 6365740781,
-      "marketCap": 384490743172,
+      "marketCap": 357118057814,
+      "rank": 48
+    },
+    {
+      "code": "6223",
+      "name": "旺矽",
+      "market": "TPEx",
+      "closeCents": 356000,
+      "issuedShares": 97981309,
+      "marketCap": 348813460040,
       "rank": 49
     },
     {
       "code": "2379",
       "name": "瑞昱",
       "market": "TWSE",
-      "closeCents": 72600,
+      "closeCents": 66800,
       "issuedShares": 515512641,
-      "marketCap": 374262177366,
+      "marketCap": 344362444188,
       "rank": 50
-    },
-    {
-      "code": "4958",
-      "name": "臻鼎-KY",
-      "market": "TWSE",
-      "closeCents": 34400,
-      "issuedShares": 1070598156,
-      "marketCap": 368285765664,
-      "rank": 51
     },
     {
       "code": "1326",
       "name": "台化",
       "market": "TWSE",
-      "closeCents": 6270,
+      "closeCents": 5730,
       "issuedShares": 5861186291,
-      "marketCap": 367496380446,
+      "marketCap": 335845974474,
+      "rank": 51
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "market": "TWSE",
+      "closeCents": 31000,
+      "issuedShares": 1070598156,
+      "marketCap": 331885428360,
       "rank": 52
     },
     {
       "code": "5274",
       "name": "信驊",
       "market": "TPEx",
-      "closeCents": 873000,
+      "closeCents": 786000,
       "issuedShares": 41582953,
-      "marketCap": 363019179690,
+      "marketCap": 326842010580,
       "rank": 53
     },
     {
       "code": "2801",
       "name": "彰銀",
       "market": "TWSE",
-      "closeCents": 2690,
+      "closeCents": 2540,
       "issuedShares": 12060197409,
-      "marketCap": 324419310302,
+      "marketCap": 306329014189,
       "rank": 54
     },
     {
       "code": "8299",
       "name": "群聯",
       "market": "TPEx",
-      "closeCents": 145500,
+      "closeCents": 132000,
       "issuedShares": 221439247,
-      "marketCap": 322194104385,
+      "marketCap": 292299806040,
       "rank": 55
-    },
-    {
-      "code": "3661",
-      "name": "世芯-KY",
-      "market": "TWSE",
-      "closeCents": 360000,
-      "issuedShares": 86383514,
-      "marketCap": 310980650400,
-      "rank": 56
     },
     {
       "code": "2207",
       "name": "和泰車",
       "market": "TWSE",
-      "closeCents": 54600,
+      "closeCents": 51600,
       "issuedShares": 557102768,
-      "marketCap": 304178111328,
+      "marketCap": 287465028288,
+      "rank": 56
+    },
+    {
+      "code": "3661",
+      "name": "世芯-KY",
+      "market": "TWSE",
+      "closeCents": 324000,
+      "issuedShares": 86383514,
+      "marketCap": 279882585360,
       "rank": 57
-    },
-    {
-      "code": "2615",
-      "name": "萬海",
-      "market": "TWSE",
-      "closeCents": 10350,
-      "issuedShares": 2806146293,
-      "marketCap": 290436141326,
-      "rank": 58
-    },
-    {
-      "code": "3665",
-      "name": "貿聯-KY",
-      "market": "TWSE",
-      "closeCents": 144000,
-      "issuedShares": 195078405,
-      "marketCap": 280912903200,
-      "rank": 59
     },
     {
       "code": "2002",
       "name": "中鋼",
       "market": "TWSE",
-      "closeCents": 1760,
+      "closeCents": 1710,
       "issuedShares": 15734860997,
-      "marketCap": 276933553547,
-      "rank": 60
+      "marketCap": 269066123049,
+      "rank": 58
     },
     {
-      "code": "3189",
-      "name": "景碩",
+      "code": "2615",
+      "name": "萬海",
       "market": "TWSE",
-      "closeCents": 52200,
-      "issuedShares": 526900160,
-      "marketCap": 275041883520,
-      "rank": 61
+      "closeCents": 9500,
+      "issuedShares": 2806146293,
+      "marketCap": 266583897835,
+      "rank": 59
     },
     {
       "code": "3034",
       "name": "聯詠",
       "market": "TWSE",
-      "closeCents": 43650,
+      "closeCents": 41650,
       "issuedShares": 611511469,
-      "marketCap": 266924756219,
-      "rank": 62
+      "marketCap": 254694526839,
+      "rank": 60
     },
     {
-      "code": "3481",
-      "name": "群創",
+      "code": "3665",
+      "name": "貿聯-KY",
       "market": "TWSE",
-      "closeCents": 3295,
-      "issuedShares": 7989197337,
-      "marketCap": 263244052254,
-      "rank": 63
+      "closeCents": 130000,
+      "issuedShares": 195078405,
+      "marketCap": 253601926500,
+      "rank": 61
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "market": "TWSE",
+      "closeCents": 47000,
+      "issuedShares": 526900160,
+      "marketCap": 247643075200,
+      "rank": 62
     },
     {
       "code": "5876",
       "name": "上海商銀",
       "market": "TWSE",
-      "closeCents": 5340,
+      "closeCents": 4960,
       "issuedShares": 4910219171,
-      "marketCap": 262205703731,
-      "rank": 64
-    },
-    {
-      "code": "6488",
-      "name": "環球晶",
-      "market": "TPEx",
-      "closeCents": 49000,
-      "issuedShares": 528113725,
-      "marketCap": 258775725250,
-      "rank": 65
+      "marketCap": 243546870882,
+      "rank": 63
     },
     {
       "code": "2618",
       "name": "長榮航",
       "market": "TWSE",
-      "closeCents": 4640,
+      "closeCents": 4465,
       "issuedShares": 5400444335,
-      "marketCap": 250580617144,
+      "marketCap": 241129839558,
+      "rank": 64
+    },
+    {
+      "code": "3481",
+      "name": "群創",
+      "market": "TWSE",
+      "closeCents": 2995,
+      "issuedShares": 7989197337,
+      "marketCap": 239276460243,
+      "rank": 65
+    },
+    {
+      "code": "6488",
+      "name": "環球晶",
+      "market": "TPEx",
+      "closeCents": 44150,
+      "issuedShares": 528113725,
+      "marketCap": 233162209588,
       "rank": 66
     },
     {
       "code": "3036",
       "name": "文曄",
       "market": "TWSE",
-      "closeCents": 17250,
+      "closeCents": 16250,
       "issuedShares": 1346316101,
-      "marketCap": 232239527423,
+      "marketCap": 218776366413,
       "rank": 67
-    },
-    {
-      "code": "6770",
-      "name": "力積電",
-      "market": "TWSE",
-      "closeCents": 4890,
-      "issuedShares": 4710019546,
-      "marketCap": 230319955799,
-      "rank": 68
-    },
-    {
-      "code": "3044",
-      "name": "健鼎",
-      "market": "TWSE",
-      "closeCents": 43350,
-      "issuedShares": 525605898,
-      "marketCap": 227850156783,
-      "rank": 69
-    },
-    {
-      "code": "2449",
-      "name": "京元電子",
-      "market": "TWSE",
-      "closeCents": 17500,
-      "issuedShares": 1283882318,
-      "marketCap": 224679405650,
-      "rank": 70
     },
     {
       "code": "3293",
       "name": "鈊象",
       "market": "TPEx",
-      "closeCents": 79200,
+      "closeCents": 75400,
       "issuedShares": 281801560,
-      "marketCap": 223186835520,
-      "rank": 71
-    },
-    {
-      "code": "4938",
-      "name": "和碩",
-      "market": "TWSE",
-      "closeCents": 8190,
-      "issuedShares": 2675708703,
-      "marketCap": 219140542776,
-      "rank": 72
-    },
-    {
-      "code": "5347",
-      "name": "世界",
-      "market": "TPEx",
-      "closeCents": 11650,
-      "issuedShares": 1878502192,
-      "marketCap": 218845505368,
-      "rank": 73
+      "marketCap": 212478376240,
+      "rank": 68
     },
     {
       "code": "2912",
       "name": "統一超",
       "market": "TWSE",
-      "closeCents": 21000,
+      "closeCents": 20400,
       "issuedShares": 1039622255,
-      "marketCap": 218320673550,
+      "marketCap": 212082940020,
+      "rank": 69
+    },
+    {
+      "code": "3044",
+      "name": "健鼎",
+      "market": "TWSE",
+      "closeCents": 40250,
+      "issuedShares": 525605898,
+      "marketCap": 211556373945,
+      "rank": 70
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "market": "TWSE",
+      "closeCents": 7810,
+      "issuedShares": 2675708703,
+      "marketCap": 208972849704,
+      "rank": 71
+    },
+    {
+      "code": "6770",
+      "name": "力積電",
+      "market": "TWSE",
+      "closeCents": 4410,
+      "issuedShares": 4710019546,
+      "marketCap": 207711861979,
+      "rank": 72
+    },
+    {
+      "code": "2449",
+      "name": "京元電子",
+      "market": "TWSE",
+      "closeCents": 15750,
+      "issuedShares": 1283882318,
+      "marketCap": 202211465085,
+      "rank": 73
+    },
+    {
+      "code": "5347",
+      "name": "世界",
+      "market": "TPEx",
+      "closeCents": 10650,
+      "issuedShares": 1878502192,
+      "marketCap": 200060483448,
       "rank": 74
     },
     {
       "code": "2313",
       "name": "華通",
       "market": "TWSE",
-      "closeCents": 16900,
+      "closeCents": 15250,
       "issuedShares": 1233820589,
-      "marketCap": 208515679541,
+      "marketCap": 188157639823,
       "rank": 75
-    },
-    {
-      "code": "6274",
-      "name": "台燿",
-      "market": "TPEx",
-      "closeCents": 69200,
-      "issuedShares": 299497093,
-      "marketCap": 207251988356,
-      "rank": 76
     },
     {
       "code": "1590",
       "name": "亞德客-KY",
       "market": "TWSE",
-      "closeCents": 100500,
+      "closeCents": 93800,
       "issuedShares": 199999998,
-      "marketCap": 200999997990,
+      "marketCap": 187599998124,
+      "rank": 76
+    },
+    {
+      "code": "6274",
+      "name": "台燿",
+      "market": "TPEx",
+      "closeCents": 62300,
+      "issuedShares": 299497093,
+      "marketCap": 186586688939,
       "rank": 77
     },
     {
       "code": "2609",
       "name": "陽明",
       "market": "TWSE",
-      "closeCents": 5730,
+      "closeCents": 5300,
       "issuedShares": 3492104270,
-      "marketCap": 200097574671,
+      "marketCap": 185081526310,
       "rank": 78
     },
     {
       "code": "1101",
       "name": "台泥",
       "market": "TWSE",
-      "closeCents": 2565,
+      "closeCents": 2435,
       "issuedShares": 7523181742,
-      "marketCap": 192969611682,
+      "marketCap": 183189475418,
       "rank": 79
-    },
-    {
-      "code": "2409",
-      "name": "友達",
-      "market": "TWSE",
-      "closeCents": 2510,
-      "issuedShares": 7547098972,
-      "marketCap": 189432184197,
-      "rank": 80
     },
     {
       "code": "2376",
       "name": "技嘉",
       "market": "TWSE",
-      "closeCents": 26000,
+      "closeCents": 24800,
       "issuedShares": 719888886,
-      "marketCap": 187171110360,
-      "rank": 81
+      "marketCap": 178532443728,
+      "rank": 80
     },
     {
-      "code": "3533",
-      "name": "嘉澤",
+      "code": "2409",
+      "name": "友達",
       "market": "TWSE",
-      "closeCents": 159500,
-      "issuedShares": 112534691,
-      "marketCap": 179492832145,
-      "rank": 82
-    },
-    {
-      "code": "3105",
-      "name": "穩懋",
-      "market": "TPEx",
-      "closeCents": 42300,
-      "issuedShares": 423940384,
-      "marketCap": 179326782432,
-      "rank": 83
+      "closeCents": 2325,
+      "issuedShares": 7547098972,
+      "marketCap": 175470051099,
+      "rank": 81
     },
     {
       "code": "2834",
       "name": "臺企銀",
       "market": "TWSE",
-      "closeCents": 1690,
+      "closeCents": 1620,
       "issuedShares": 10398326179,
-      "marketCap": 175731712425,
-      "rank": 84
+      "marketCap": 168452884100,
+      "rank": 82
     },
     {
       "code": "5871",
       "name": "中租-KY",
       "market": "TWSE",
-      "closeCents": 9950,
+      "closeCents": 9400,
       "issuedShares": 1745649584,
-      "marketCap": 173692133608,
+      "marketCap": 164091060896,
+      "rank": 83
+    },
+    {
+      "code": "3533",
+      "name": "嘉澤",
+      "market": "TWSE",
+      "closeCents": 144000,
+      "issuedShares": 112534691,
+      "marketCap": 162049955040,
+      "rank": 84
+    },
+    {
+      "code": "3105",
+      "name": "穩懋",
+      "market": "TPEx",
+      "closeCents": 38100,
+      "issuedShares": 423940384,
+      "marketCap": 161521286304,
       "rank": 85
     },
     {
       "code": "2404",
       "name": "漢唐",
       "market": "TWSE",
-      "closeCents": 89700,
+      "closeCents": 81700,
       "issuedShares": 190586698,
-      "marketCap": 170956268106,
+      "marketCap": 155709332266,
       "rank": 86
     },
     {
       "code": "1802",
       "name": "台玻",
       "market": "TWSE",
-      "closeCents": 5870,
+      "closeCents": 5290,
       "issuedShares": 2908060800,
-      "marketCap": 170703168960,
+      "marketCap": 153836416320,
       "rank": 87
     },
     {
       "code": "1519",
       "name": "華城",
       "market": "TWSE",
-      "closeCents": 46800,
+      "closeCents": 42150,
       "issuedShares": 347468929,
-      "marketCap": 162615458772,
+      "marketCap": 146458153574,
       "rank": 88
-    },
-    {
-      "code": "3081",
-      "name": "聯亞",
-      "market": "TPEx",
-      "closeCents": 151500,
-      "issuedShares": 101869004,
-      "marketCap": 154331541060,
-      "rank": 89
     },
     {
       "code": "8069",
       "name": "元太",
       "market": "TPEx",
-      "closeCents": 13250,
+      "closeCents": 12450,
       "issuedShares": 1155168105,
-      "marketCap": 153059773913,
-      "rank": 90
-    },
-    {
-      "code": "6239",
-      "name": "力成",
-      "market": "TWSE",
-      "closeCents": 20150,
-      "issuedShares": 759146634,
-      "marketCap": 152968046751,
-      "rank": 91
-    },
-    {
-      "code": "3529",
-      "name": "力旺",
-      "market": "TPEx",
-      "closeCents": 199500,
-      "issuedShares": 74686492,
-      "marketCap": 148999551540,
-      "rank": 92
+      "marketCap": 143818429073,
+      "rank": 89
     },
     {
       "code": "2356",
       "name": "英業達",
       "market": "TWSE",
-      "closeCents": 4055,
+      "closeCents": 3925,
       "issuedShares": 3587475066,
-      "marketCap": 145472113926,
-      "rank": 93
-    },
-    {
-      "code": "6213",
-      "name": "聯茂",
-      "market": "TWSE",
-      "closeCents": 39500,
-      "issuedShares": 363562218,
-      "marketCap": 143607076110,
-      "rank": 94
+      "marketCap": 140808396341,
+      "rank": 90
     },
     {
       "code": "2633",
       "name": "台灣高鐵",
       "market": "TWSE",
-      "closeCents": 2550,
+      "closeCents": 2500,
       "issuedShares": 5628293058,
-      "marketCap": 143521472979,
-      "rank": 95
+      "marketCap": 140707326450,
+      "rank": 91
+    },
+    {
+      "code": "3081",
+      "name": "聯亞",
+      "market": "TPEx",
+      "closeCents": 136500,
+      "issuedShares": 101869004,
+      "marketCap": 139051190460,
+      "rank": 92
+    },
+    {
+      "code": "6239",
+      "name": "力成",
+      "market": "TWSE",
+      "closeCents": 18150,
+      "issuedShares": 759146634,
+      "marketCap": 137785114071,
+      "rank": 93
     },
     {
       "code": "1402",
       "name": "遠東新",
       "market": "TWSE",
-      "closeCents": 2645,
+      "closeCents": 2560,
       "issuedShares": 5352875227,
-      "marketCap": 141583549754,
+      "marketCap": 137033605811,
+      "rank": 94
+    },
+    {
+      "code": "3529",
+      "name": "力旺",
+      "market": "TPEx",
+      "closeCents": 180000,
+      "issuedShares": 74686492,
+      "marketCap": 134435685600,
+      "rank": 95
+    },
+    {
+      "code": "3702",
+      "name": "大聯大",
+      "market": "TWSE",
+      "closeCents": 7750,
+      "issuedShares": 1682278898,
+      "marketCap": 130376614595,
       "rank": 96
     },
     {
       "code": "2610",
       "name": "華航",
       "market": "TWSE",
-      "closeCents": 2250,
+      "closeCents": 2130,
       "issuedShares": 6117941273,
-      "marketCap": 137653678643,
+      "marketCap": 130312149115,
       "rank": 97
+    },
+    {
+      "code": "6213",
+      "name": "聯茂",
+      "market": "TWSE",
+      "closeCents": 35550,
+      "issuedShares": 363562218,
+      "marketCap": 129246368499,
+      "rank": 98
     },
     {
       "code": "1504",
       "name": "東元",
       "market": "TWSE",
-      "closeCents": 5680,
+      "closeCents": 5190,
       "issuedShares": 2376440684,
-      "marketCap": 134981830851,
-      "rank": 98
-    },
-    {
-      "code": "3702",
-      "name": "大聯大",
-      "market": "TWSE",
-      "closeCents": 8020,
-      "issuedShares": 1682278898,
-      "marketCap": 134918767620,
+      "marketCap": 123337271500,
       "rank": 99
     },
     {
-      "code": "6139",
-      "name": "亞翔",
+      "code": "1605",
+      "name": "華新",
       "market": "TWSE",
-      "closeCents": 54900,
-      "issuedShares": 235575724,
-      "marketCap": 129331072476,
+      "closeCents": 2685,
+      "issuedShares": 4431332948,
+      "marketCap": 118981289654,
       "rank": 100
     }
   ]
